@@ -1,12 +1,51 @@
 body {
     background-color: #f8f9fa;
     padding-bottom: 2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
 }
 
 .card {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .card {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+body.dark-mode .card-header {
+    background-color: #1a1a1a !important;
+    border-bottom-color: #444;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #3d3d3d;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    background-color: #3d3d3d;
+    color: #e0e0e0;
+    border-color: #0d6efd;
+}
+
+body.dark-mode .text-muted {
+    color: #999 !important;
+}
+
+body.dark-mode .bg-light {
+    background-color: #3d3d3d !important;
 }
 
 .card-header {
@@ -50,6 +89,12 @@ body {
     margin: 5px;
     padding: 0.5rem 1.5rem;
     font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.toolbar {
+    margin: 10px 0;
+    flex-wrap: wrap;
 }
 
 .text-muted {
@@ -80,6 +125,78 @@ body {
     animation: processExecution 1s ease-in-out;
 }
 
+/* Visualization canvas styling */
+#graphCanvas {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+}
+
+body.dark-mode #graphCanvas {
+    border-color: #555;
+}
+
+/* Simulation log styling */
+#simulation-log {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+body.dark-mode #simulation-log {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    border-color: #555;
+}
+
+/* History list styling */
+#history-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 0.5rem;
+    border-left: 3px solid #0d6efd;
+    margin-bottom: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.history-item:hover {
+    background-color: #e9ecef;
+    transform: translateX(5px);
+}
+
+body.dark-mode .history-item {
+    background-color: #3d3d3d;
+    border-left-color: #0d6efd;
+}
+
+body.dark-mode .history-item:hover {
+    background-color: #4d4d4d;
+}
+
+/* Performance metrics styling */
+#performance-metrics {
+    font-size: 0.85rem;
+}
+
+.metric-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+body.dark-mode .metric-row {
+    border-bottom-color: #555;
+}
+
 /* Tooltip customization */
 .tooltip {
     font-size: 0.875rem;
@@ -105,4 +222,40 @@ body {
     border-radius: 0.5rem;
     font-size: 0.9rem;
     line-height: 1.5;
+}
+
+body.dark-mode #explanation {
+    background-color: #3d3d3d;
+    color: #e0e0e0;
+}
+
+/* Process node styling for visualization */
+.process-node {
+    fill: #0d6efd;
+    cursor: pointer;
+    transition: fill 0.2s ease;
+}
+
+.process-node:hover {
+    fill: #0b5ed7;
+}
+
+.resource-node {
+    fill: #198754;
+    cursor: pointer;
+    transition: fill 0.2s ease;
+}
+
+.resource-node:hover {
+    fill: #157347;
+}
+
+.deadlock-edge {
+    stroke: #dc3545;
+    stroke-width: 2;
+}
+
+.safe-edge {
+    stroke: #198754;
+    stroke-width: 1;
 }
